@@ -7,6 +7,7 @@ public class Portal : MonoBehaviour {
     public Portal linkedPortal;
     public MeshRenderer screen;
     public int recursionLimit = 5;
+    public bool canSee = true;
 
     [Header ("Advanced Settings")]
     public float nearClipOffset = 0.05f;
@@ -19,6 +20,16 @@ public class Portal : MonoBehaviour {
     Material firstRecursionMat;
     List<PortalTraveller> trackedTravellers;
     MeshFilter screenMeshFilter;
+
+    public bool IsEnabled()
+    {
+        if (this.enabled) {
+            return true;
+        }
+        else {
+           return false;
+        }
+    }
 
     void Awake () {
         playerCam = Camera.main;
@@ -64,6 +75,18 @@ public class Portal : MonoBehaviour {
 
     // Called before any portal cameras are rendered for the current frame
     public void PrePortalRender () {
+        //check if this screen is visible
+        if (CameraUtility.VisibleFromCamera(this.screen, playerCam))
+        {
+            canSee = true;
+        }
+        else
+        {
+            canSee = false;
+        }
+        //skip if no pair
+        if (this.linkedPortal == null) { return; }
+
         foreach (var traveller in trackedTravellers) {
             UpdateSliceParams (traveller);
         }
@@ -72,6 +95,8 @@ public class Portal : MonoBehaviour {
     // Manually render the camera attached to this portal
     // Called after PrePortalRender, and before PostPortalRender
     public void Render () {
+        //skip if no pair
+        if (this.linkedPortal == null) { return; }
 
         // Skip rendering the view from this portal if player is not looking at the linked portal
         if (!CameraUtility.VisibleFromCamera (linkedPortal.screen, playerCam)) {
@@ -177,6 +202,9 @@ public class Portal : MonoBehaviour {
 
     // Called once all portals have been rendered, but before the player camera renders
     public void PostPortalRender () {
+        //skip if no pair
+        if (this.linkedPortal == null) { return; }
+
         foreach (var traveller in trackedTravellers) {
             UpdateSliceParams (traveller);
         }
@@ -206,7 +234,6 @@ public class Portal : MonoBehaviour {
         bool camFacingSameDirAsPortal = Vector3.Dot (transform.forward, transform.position - viewPoint) > 0;
         screenT.localScale = new Vector3 (screenT.localScale.x, screenT.localScale.y, screenThickness);
         screenT.localPosition = Vector3.forward * screenThickness * ((camFacingSameDirAsPortal) ? 0.5f : -0.5f);
-        print(screenThickness);
         return screenThickness;
     }
 
