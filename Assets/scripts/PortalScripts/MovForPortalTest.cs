@@ -4,30 +4,71 @@ using UnityEngine;
 
 public class MovForPortalTest : MonoBehaviour
 {
-    CharacterController characterController;
-    Camera currentCam;
-    Vector3 velocityMov;
+    [Header("Movement")]
+    public float moveSpeed;
+
+    public float groundDrag;
 
     public float mouseSense = 300;
-    public float movSpeed = 1000;
 
-    // Start is called before the first frame update
-    void Start()
+    public Transform orientation;
+
+    float horizontalInput;
+    float verticalInput;
+
+    Vector3 moveDirection;
+
+    Camera mainCam;
+
+    Rigidbody rb;
+
+    private void Start()
     {
-        currentCam = Camera.main;
-        characterController = GetComponent<CharacterController>();
+        mainCam = Camera.main;
+        rb = GetComponent<Rigidbody>();
+        rb.freezeRotation = true;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        //move acording to inputs
-        velocityMov = currentCam.transform.right * Input.GetAxis("Horizontal") + transform.forward * Input.GetAxis("Vertical");
-        velocityMov = Vector3.ClampMagnitude(velocityMov, 1);
-        velocityMov.y = 0;
-        characterController.SimpleMove(velocityMov * movSpeed * Time.deltaTime);
+        MyInput();
+        SpeedControl();
+
+        // handle drag
+        rb.drag = groundDrag;
+
         //rotate
         transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X") * mouseSense * Time.deltaTime, 0));
-        currentCam.transform.Rotate(new Vector3(Input.GetAxis("Mouse Y") * -mouseSense * Time.deltaTime, 0, 0));
+        mainCam.transform.Rotate(new Vector3(Input.GetAxis("Mouse Y") * -mouseSense * Time.deltaTime, 0, 0));
+    }
+
+    private void FixedUpdate()
+    {
+        MovePlayer();
+    }
+    private void MyInput()
+    {
+        horizontalInput = Input.GetAxisRaw("Horizontal");
+        verticalInput = Input.GetAxisRaw("Vertical");
+    }
+
+    private void MovePlayer()
+    {
+        // calculate movement direction
+        moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
+
+        rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
+    }
+
+    private void SpeedControl()
+    {
+        Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+
+        // limit velocity if needed
+        if (flatVel.magnitude > moveSpeed)
+        {
+            Vector3 limitedVel = flatVel.normalized * moveSpeed;
+            rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
+        }
     }
 }
