@@ -30,32 +30,21 @@ public class openDoor : MonoBehaviour
         doorRightEnd.x += 4;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnTriggerEnter(Collider other)
     {
-        //if(isOpen)
-        //{
-        //    isOpen = false;
-        //    animator.SetTrigger("close");
-        //    //doorLeft.transform.position = doorLeftStart;
-        //    //doorRight.transform.position = doorRightStart;
-        //}
-        //else
-        //{
-        //    isOpen = true;
-        //    animator.SetTrigger("open");
-        //    //doorLeft.transform.position = doorLeftEnd;
-        //    //doorRight.transform.position = doorRightEnd;
-        //}
         if(!isOpen)
         {
             isOpen = true;
             animator.SetTrigger("open");
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (isOpen)
+        {
+            isOpen = false;
+            animator.SetTrigger("close");
         }
     }
 }
