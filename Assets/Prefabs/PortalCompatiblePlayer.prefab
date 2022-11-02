@@ -268,11 +268,9 @@ GameObject:
   - component: {fileID: 8602713893230198056}
   - component: {fileID: 8602713893230198057}
   - component: {fileID: 8602713893230198059}
-  - component: {fileID: 8602713893230198061}
   - component: {fileID: 8602713893230198055}
   - component: {fileID: 2968173731613146570}
   - component: {fileID: 6947964617331741631}
-  - component: {fileID: 7817607425812926313}
   m_Layer: 0
   m_Name: PortalCompatiblePlayer
   m_TagString: Untagged
@@ -321,21 +319,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8602713893230198061
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8602713893230198062}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8169cbc3b533adc48931d7d4215e31fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 7
-  groundDrag: 5
-  orientation: {fileID: 8602713892208736438}
 --- !u!54 &8602713893230198055
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -364,8 +347,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7385f5ae0808dbf42b22aba0c13e9829, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MasterPortal: {fileID: 0}
-  SlavePortals: []
+  telaPortals: []
+  controlDoors: []
+  portalHeight: 0.99
+  portalStorage: 20
 --- !u!114 &6947964617331741631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -378,20 +363,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b08630588e61ba646b5978dc73b26920, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  graphicsObject: {fileID: 6907386275498071347}
   moveSpeed: 7
   groundDrag: 5
   mouseSense: 300
   orientation: {fileID: 8602713892208736438}
---- !u!114 &7817607425812926313
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8602713893230198062}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5f42e55b1d88684395a9b0bd068067f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  graphicsObject: {fileID: 6907386275498071347}
