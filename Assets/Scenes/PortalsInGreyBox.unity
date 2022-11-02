@@ -3925,7 +3925,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh22056
+  m_Name: pb_Mesh22494
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4150,6 +4150,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Portal twinA
       objectReference: {fileID: 0}
+    - target: {fileID: 6961840205987926841, guid: bb61eae9e145ccc48aeca57071e70bf8, type: 3}
+      propertyPath: linkedPortal
+      value: 
+      objectReference: {fileID: 1196286103}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb61eae9e145ccc48aeca57071e70bf8, type: 3}
 --- !u!43 &65651094
@@ -47110,7 +47114,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: PortalCompatiblePlayer
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 6168e930ca1ed234980237f1a35f3437, type: 3}
 --- !u!43 &728995799
 Mesh:
@@ -50613,7 +50618,7 @@ PrefabInstance:
     - target: {fileID: 6961840205987926841, guid: bb61eae9e145ccc48aeca57071e70bf8, type: 3}
       propertyPath: linkedPortal
       value: 
-      objectReference: {fileID: 327686885}
+      objectReference: {fileID: 105551628}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb61eae9e145ccc48aeca57071e70bf8, type: 3}
 --- !u!1 &1068923282
@@ -51381,6 +51386,17 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!114 &1196286103 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6961840205987926841, guid: bb61eae9e145ccc48aeca57071e70bf8, type: 3}
+  m_PrefabInstance: {fileID: 1401119068}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 852395ee1ca8f2c479c76f5019667320, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1335109352
 PrefabInstance:
   m_ObjectHideFlags: 0
