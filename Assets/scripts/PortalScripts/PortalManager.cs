@@ -12,12 +12,19 @@ public class PortalManager : MonoBehaviour
 
     Portal currentPortal;
 
+    public int flipTicks;
+    int curTicks;
+    Transform tf;
+
     // Start is called before the first frame update
     void Start()
     {
         //set portal to be present at start of game
         currentPortal = telaPortals[0];
         currentPortal.transform.position = new Vector3(currentPortal.transform.position.x, portalHeight, currentPortal.transform.position.z);
+        Physics.gravity = new Vector3(0, -50, 0);
+        tf = GetComponent<Transform>();
+        curTicks = flipTicks;
     }
 
     // Update is called once per frame
@@ -38,5 +45,20 @@ public class PortalManager : MonoBehaviour
 
             }
         }
+        if(curTicks < flipTicks)
+        {
+            tf.Rotate(new Vector3(0, 0, 180/flipTicks));
+            curTicks++;
+        }
+    }
+
+    public void fancyFlip()
+    {
+        Physics.gravity = Physics.gravity * -1;
+        curTicks = 0;
+    }
+    public void fastFlip()
+    {
+        Physics.gravity = Physics.gravity * -1;
     }
 }

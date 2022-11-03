@@ -67,8 +67,8 @@ public class physicbutton : MonoBehaviour
         pressedSound.pitch = 1;
         pressedSound.Play();
         onPressed.Invoke();
-        Physics.gravity = new Vector3(0, 50, 0);
-        Debug.Log("gravity");
+        //Physics.gravity = new Vector3(0, 50, 0);
+        //Debug.Log("gravity");
     }
 
     void Released(){
