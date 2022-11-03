@@ -6,6 +6,9 @@ public class openDoor : MonoBehaviour
 {
     public GameObject doorLeft;
     public GameObject doorRight;
+    public AudioSource openAudio;
+    public AudioSource closeAudio;
+
 
     private bool isOpen = false;
 
@@ -38,6 +41,7 @@ public class openDoor : MonoBehaviour
         {
             isOpen = true;
             animator.SetTrigger("open");
+            openAudio.Play();
         }
     }
 
@@ -47,6 +51,7 @@ public class openDoor : MonoBehaviour
         {
             isOpen = false;
             animator.SetTrigger("close");
+            closeAudio.Play();
         }
     }
 }
