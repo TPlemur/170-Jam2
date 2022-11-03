@@ -97,8 +97,12 @@ public class MovForPortalTest : PortalTraveller
     //gravity functions
     public void fancyFlip()
     {
-        Physics.gravity = Physics.gravity * -1;
-        curTicks = 0;
+        //protect against being called before function ends
+        if (curTicks == flipTicks)
+        {
+            Physics.gravity = Physics.gravity * -1;
+            curTicks = 0;
+        }
     }
     public void fastFlip()
     {
