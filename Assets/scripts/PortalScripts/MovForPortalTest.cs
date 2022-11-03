@@ -10,7 +10,8 @@ public class MovForPortalTest : PortalTraveller
     public float groundDrag;
 
     public float mouseSense = 300;
-    public float gravity = 50;
+    public float globalGravity = 50;
+    public float playerGravity = 50;
 
     public Transform orientation;
 
@@ -32,7 +33,7 @@ public class MovForPortalTest : PortalTraveller
         mainCam = Camera.main;
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
-        Physics.gravity = new Vector3(0, -gravity, 0);
+        Physics.gravity = new Vector3(0, -globalGravity, 0);
         tf = GetComponent<Transform>();
         curTicks = flipTicks;
     }
@@ -74,6 +75,7 @@ public class MovForPortalTest : PortalTraveller
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
         rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
+        rb.AddForce(Physics.gravity.normalized*playerGravity);
     }
 
     private void SpeedControl()
