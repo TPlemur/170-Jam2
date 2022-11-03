@@ -22,11 +22,18 @@ public class MovForPortalTest : PortalTraveller
 
     Rigidbody rb;
 
+    public int flipTicks;
+    int curTicks;
+    Transform tf;
+
     private void Start()
     {
         mainCam = Camera.main;
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+        Physics.gravity = new Vector3(0, -50, 0);
+        tf = GetComponent<Transform>();
+        curTicks = flipTicks;
     }
 
     private void Update()
@@ -37,9 +44,17 @@ public class MovForPortalTest : PortalTraveller
         // handle drag
         rb.drag = groundDrag;
 
-        //rotate
-        transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X") * mouseSense * Time.deltaTime, 0));
-        mainCam.transform.Rotate(new Vector3(Input.GetAxis("Mouse Y") * -mouseSense * Time.deltaTime, 0, 0));
+        if (curTicks < flipTicks)
+        {
+            tf.Rotate(new Vector3(0, 0, 180 / flipTicks));
+            curTicks++;
+        }
+        else
+        {
+            //rotate
+            transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X") * mouseSense * Time.deltaTime, 0));
+            mainCam.transform.Rotate(new Vector3(Input.GetAxis("Mouse Y") * -mouseSense * Time.deltaTime, 0, 0));
+        }
     }
 
     private void FixedUpdate()
@@ -79,4 +94,14 @@ public class MovForPortalTest : PortalTraveller
         rb.angularVelocity = toPortal.TransformVector(fromPortal.InverseTransformVector(rb.angularVelocity));
     }
 
+    //gravity functions
+    public void fancyFlip()
+    {
+        Physics.gravity = Physics.gravity * -1;
+        curTicks = 0;
+    }
+    public void fastFlip()
+    {
+        Physics.gravity = Physics.gravity * -1;
+    }
 }
