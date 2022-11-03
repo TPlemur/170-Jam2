@@ -48331,6 +48331,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amplitude: 0.3
   frequency: 0.4
+  cube: {fileID: 499609038}
 --- !u!4 &449329220 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7449aae5467fb8943a7f938a0c2e1d83, type: 3}
@@ -49049,6 +49050,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amplitude: 0.5
   frequency: 1
+  cube: {fileID: 0}
 --- !u!1001 &507396462
 PrefabInstance:
   m_ObjectHideFlags: 0
