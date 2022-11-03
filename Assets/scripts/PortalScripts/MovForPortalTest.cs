@@ -10,6 +10,7 @@ public class MovForPortalTest : PortalTraveller
     public float groundDrag;
 
     public float mouseSense = 300;
+    public float gravity = 50;
 
     public Transform orientation;
 
@@ -31,7 +32,7 @@ public class MovForPortalTest : PortalTraveller
         mainCam = Camera.main;
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
-        Physics.gravity = new Vector3(0, -50, 0);
+        Physics.gravity = new Vector3(0, -gravity, 0);
         tf = GetComponent<Transform>();
         curTicks = flipTicks;
     }
