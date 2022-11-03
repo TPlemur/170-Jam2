@@ -39,7 +39,7 @@ public class MovForPortalTest : PortalTraveller
     private void Update()
     {
         MyInput();
-        SpeedControl();
+        //SpeedControl();
 
         // handle drag
         rb.drag = groundDrag;
@@ -51,7 +51,7 @@ public class MovForPortalTest : PortalTraveller
         }
         else
         {
-            //rotate
+            //rotate player camera
             transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X") * mouseSense * Time.deltaTime, 0));
             mainCam.transform.Rotate(new Vector3(Input.GetAxis("Mouse Y") * -mouseSense * Time.deltaTime, 0, 0));
         }
