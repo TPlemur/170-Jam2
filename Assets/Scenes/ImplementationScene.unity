@@ -47675,7 +47675,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh38124
+  m_Name: pb_Mesh75828
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -48075,6 +48075,10 @@ PrefabInstance:
       propertyPath: linkedPortal
       value: 
       objectReference: {fileID: 430110833}
+    - target: {fileID: 6961840205987926841, guid: bb61eae9e145ccc48aeca57071e70bf8, type: 3}
+      propertyPath: recursionLimit
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb61eae9e145ccc48aeca57071e70bf8, type: 3}
 --- !u!1 &903216317 stripped
@@ -50976,6 +50980,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Portal corA
       objectReference: {fileID: 0}
+    - target: {fileID: 6961840205987926841, guid: bb61eae9e145ccc48aeca57071e70bf8, type: 3}
+      propertyPath: linkedPortal
+      value: 
+      objectReference: {fileID: 456525498}
+    - target: {fileID: 6961840205987926841, guid: bb61eae9e145ccc48aeca57071e70bf8, type: 3}
+      propertyPath: recursionLimit
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb61eae9e145ccc48aeca57071e70bf8, type: 3}
 --- !u!1001 &1058325743
@@ -51044,6 +51056,14 @@ PrefabInstance:
     - target: {fileID: 5867281790968380042, guid: bb61eae9e145ccc48aeca57071e70bf8, type: 3}
       propertyPath: m_Name
       value: Portal corC
+      objectReference: {fileID: 0}
+    - target: {fileID: 6961840205987926841, guid: bb61eae9e145ccc48aeca57071e70bf8, type: 3}
+      propertyPath: linkedPortal
+      value: 
+      objectReference: {fileID: 1515584952}
+    - target: {fileID: 6961840205987926841, guid: bb61eae9e145ccc48aeca57071e70bf8, type: 3}
+      propertyPath: recursionLimit
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb61eae9e145ccc48aeca57071e70bf8, type: 3}
@@ -59925,6 +59945,10 @@ PrefabInstance:
       propertyPath: linkedPortal
       value: 
       objectReference: {fileID: 1627666782}
+    - target: {fileID: 6961840205987926841, guid: bb61eae9e145ccc48aeca57071e70bf8, type: 3}
+      propertyPath: recursionLimit
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb61eae9e145ccc48aeca57071e70bf8, type: 3}
 --- !u!43 &1574635097
@@ -65931,6 +65955,10 @@ PrefabInstance:
     - target: {fileID: 6961840205987926841, guid: bb61eae9e145ccc48aeca57071e70bf8, type: 3}
       propertyPath: linkedPortal
       value: 
+      objectReference: {fileID: 547677269}
+    - target: {fileID: 6961840205987926841, guid: bb61eae9e145ccc48aeca57071e70bf8, type: 3}
+      propertyPath: recursionLimit
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb61eae9e145ccc48aeca57071e70bf8, type: 3}
@@ -70726,6 +70754,10 @@ PrefabInstance:
       propertyPath: linkedPortal
       value: 
       objectReference: {fileID: 1800870107}
+    - target: {fileID: 6961840205987926841, guid: bb61eae9e145ccc48aeca57071e70bf8, type: 3}
+      propertyPath: recursionLimit
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb61eae9e145ccc48aeca57071e70bf8, type: 3}
 --- !u!43 &2000077286
