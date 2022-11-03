@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Portal : MonoBehaviour {
     [Header ("Main Settings")]
@@ -8,6 +9,8 @@ public class Portal : MonoBehaviour {
     public MeshRenderer screen;
     public int recursionLimit = 5;
     public bool canSee = true;
+    public bool isFlip = false;
+    public UnityEvent onTravel;
 
     [Header ("Advanced Settings")]
     public float nearClipOffset = 0.05f;
@@ -64,6 +67,10 @@ public class Portal : MonoBehaviour {
                 linkedPortal.OnTravellerEnterPortal (traveller);
                 trackedTravellers.RemoveAt (i);
                 i--;
+                if (isFlip)
+                {
+                    onTravel.Invoke();
+                }
 
             } else {
                 traveller.graphicsClone.transform.SetPositionAndRotation (m.GetColumn (3), m.rotation);
