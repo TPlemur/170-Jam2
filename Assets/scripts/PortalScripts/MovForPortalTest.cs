@@ -30,6 +30,8 @@ public class MovForPortalTest : PortalTraveller
     int curTicks;
     Transform tf;
 
+    public bool canMove = true;
+
     private void Start()
     {
         mainCam = Camera.main;
@@ -57,7 +59,7 @@ public class MovForPortalTest : PortalTraveller
             tf.Rotate(new Vector3(0, 0, 180 / flipTicks));
             curTicks++;
         }
-        else
+        else if (canMove)
         {
             //rotate player camera
             transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X") * mouseSense * Time.deltaTime, 0));
@@ -67,7 +69,10 @@ public class MovForPortalTest : PortalTraveller
 
     private void FixedUpdate()
     {
-        MovePlayer();
+        if (canMove)
+        {
+            MovePlayer();
+        }
     }
     private void MyInput()
     {
