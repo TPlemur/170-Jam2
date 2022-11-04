@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class MovForPortalTest : PortalTraveller
 {
@@ -25,6 +26,7 @@ public class MovForPortalTest : PortalTraveller
     Rigidbody rb;
 
     public int flipTicks;
+    public UnityEvent fog;
     int curTicks;
     Transform tf;
 
@@ -109,10 +111,12 @@ public class MovForPortalTest : PortalTraveller
         {
             Physics.gravity = Physics.gravity * -1;
             curTicks = 0;
+            fog.Invoke();
         }
     }
     public void fastFlip()
     {
         Physics.gravity = Physics.gravity * -1;
+        fog.Invoke();
     }
 }

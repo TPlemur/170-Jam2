@@ -16,6 +16,7 @@ public class FogFlip : MonoBehaviour
     public void FlipDir()
     {
         var main = particles.main;
-        main.startSpeed = -1*dir;
+        dir *= -1;
+        main.startSpeed = dir;
     }
 }
