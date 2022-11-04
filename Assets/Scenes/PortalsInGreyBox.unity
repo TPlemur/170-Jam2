@@ -47066,6 +47066,10 @@ PrefabInstance:
       propertyPath: controlDoors.Array.data[2]
       value: 
       objectReference: {fileID: 1476606366}
+    - target: {fileID: 6947964617331741631, guid: 6168e930ca1ed234980237f1a35f3437, type: 3}
+      propertyPath: moveSpeed
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 8602713893230198056, guid: 6168e930ca1ed234980237f1a35f3437, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -47076,7 +47080,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8602713893230198056, guid: 6168e930ca1ed234980237f1a35f3437, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 4.83
       objectReference: {fileID: 0}
     - target: {fileID: 8602713893230198056, guid: 6168e930ca1ed234980237f1a35f3437, type: 3}
       propertyPath: m_LocalPosition.z
