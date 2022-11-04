@@ -12,6 +12,22 @@ public class NoteScript : MonoBehaviour
         noteImage.enabled = false;
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Player"))
+        {
+            ShowNoteImage();
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.CompareTag("Player"))
+        {
+            HideNoteImage();
+        }
+    }
+
     // Update is called once per frame
     public void ShowNoteImage()
     {
