@@ -36,6 +36,10 @@ public class MovForPortalTest : PortalTraveller
         Physics.gravity = new Vector3(0, -globalGravity, 0);
         tf = GetComponent<Transform>();
         curTicks = flipTicks;
+
+        //lock cursor
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     private void Update()
