@@ -32,6 +32,8 @@ public class MovForPortalTest : PortalTraveller
 
     public bool canMove = true;
 
+    public int datapads = 0;
+
     private void Start()
     {
         mainCam = Camera.main;
